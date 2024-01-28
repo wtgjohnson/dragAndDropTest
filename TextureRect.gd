@@ -1,7 +1,13 @@
 extends TextureRect
 
-func failed_drag():
-	Node.NOTIFICATION_DRAG_END
+@export var dragged_from = false
+
+func _notification(what):
+	if what == NOTIFICATION_DRAG_END:
+		if is_drag_successful():
+			dragged_from = false
+		elif dragged_from:
+			texture=ResourceLoader.load("res://small_Basic_red_dot.png")
 
 func _get_drag_data(at_position):
 	
@@ -15,6 +21,7 @@ func _get_drag_data(at_position):
 	preview.add_child(preview_texture)
  
 	set_drag_preview(preview)
+	dragged_from=true
 	
 	texture=null
 
