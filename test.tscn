@@ -20,3 +20,5 @@ offset_top = 115.0
 offset_right = 317.0
 offset_bottom = 155.0
 texture = ExtResource("3_gl6qr")
+
+[editable path="TextureRect2"]
